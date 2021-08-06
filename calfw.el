@@ -53,7 +53,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'calendar)
 (require 'holidays)
 (require 'format-spec)
@@ -124,43 +124,42 @@
   :type 'string)
 
 (defcustom cfw:read-date-command 'cfw:read-date-command-simple
-  "The command used to read the date in `cfw:navi-goto-date-command',
-for example `cfw:read-date-command-simple' or `cfw:org-read-date-command'."
+  "The command used to read the date in `cfw:navi-goto-date-command',for example `cfw:read-date-command-simple' or `cfw:org-read-date-command'."
   :group 'cfw
   :type 'function)
 
 (defcustom cfw:event-format-overview "%t"
   "Format string of `cfw:event's for overviews (month-, 2-week-, week-view).
- See `cfw:event-format' for possible values."
+See `cfw:event-format' for possible values."
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-days-overview "%s%e%t"
   "Format string of `cfw:event's for days overviews.
- See `cfw:event-format' for possible values."
+See `cfw:event-format' for possible values."
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-period-overview "%t%l"
   "Format string of `cfw:event's for period overviews.
- See `cfw:event-format' for possible values."
+See `cfw:event-format' for possible values."
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-detail "%s%e%t%l%d"
   "Format string of `cfw:event's for overviews (month-, week-, day-view).
- See `cfw:event-format' for possible values."
+See `cfw:event-format' for possible values."
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-title "%s"
-  "Format string for the title of a `cfw:event'
-%s = title string"
+  "Format string for the title of a `cfw:event'.
+%s = title string."
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-start-date "%Y-%m-%d"
-  "Format string for the start date of a `cfw:event'
+  "Format string for the start date of a `cfw:event'.
 %Y = year
 %m = month
 %d = day"
@@ -168,14 +167,14 @@ for example `cfw:read-date-command-simple' or `cfw:org-read-date-command'."
   :type 'string)
 
 (defcustom cfw:event-format-start-time "%H:%M "
-  "Format string for the start time of a `cfw:event'
+  "Format string for the start time of a `cfw:event'.
 %H = hours
 %M = minutes"
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-end-date "%Y-%m-%d"
-  "Format string for the end date of a `cfw:event'
+  "Format string for the end date of a `cfw:event'.
 %Y = year
 %m = month
 %d = day"
@@ -183,20 +182,20 @@ for example `cfw:read-date-command-simple' or `cfw:org-read-date-command'."
   :type 'string)
 
 (defcustom cfw:event-format-end-time "- %H:%M "
-  "Format string for the end time of a `cfw:event'
+  "Format string for the end time of a `cfw:event'.
 %H = hours
 %M = minutes"
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-location "\n  Location:    %s"
-  "Format string for the location of a `cfw:event'
+  "Format string for the location of a `cfw:event'.
 %s = location string"
   :group 'cfw
   :type 'string)
 
 (defcustom cfw:event-format-description "\n\n%s\n--------------------\n"
-  "Format string for the description of a `cfw:event'
+  "Format string for the description of a `cfw:event'.
 %s = location string"
   :group 'cfw
   :type 'string)
@@ -214,7 +213,7 @@ for example `cfw:read-date-command-simple' or `cfw:org-read-date-command'."
     (((class color) (background dark))
      :foreground "darkgoldenrod3" :weight bold :height 2.0 :inherit variable-pitch)
     (t :height 1.5 :weight bold :inherit variable-pitch))
-  "Face for title" :group 'calfw)
+  "Face for title." :group 'calfw)
 
 (defface cfw:face-header
   '((((class color) (background light))
